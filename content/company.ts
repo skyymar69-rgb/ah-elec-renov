@@ -23,7 +23,7 @@ export const company = {
   tagline: "Électricité & rénovation intérieure clé en main",
   baseline: "Un seul interlocuteur, de l'électricité à la rénovation.",
   director: "Hocine ASLI",
-  directorRole: "Gérant", // d'après la carte (à confirmer avec la forme juridique)
+  directorRole: "Président", // SASU → Président
 
   // --- Coordonnées (NAP — IDENTIQUE partout : site, Google, annuaires) ---
   contact: {
@@ -46,23 +46,23 @@ export const company = {
     longitude: 4.8045,
   },
 
-  // --- Données légales ---
+  // --- Données légales (entité confirmée : AH ELEC RENOV SASU) ---
   legal: {
-    // Identifiants en conflit (853 296 499 carte vs 933 755 423 brief) :
-    // laissés « À COMPLÉTER » tant que l'entité n'est pas confirmée.
-    raisonSociale: "", // raison sociale officielle (Kbis)
-    form: "", // ex. "EURL au capital de X €" ou "SASU au capital de 100 €"
-    siren: "", // ex. "853 296 499"
-    siret: "", // ex. "853 296 499 00017"
-    rcs: "", // ex. "853 296 499 R.C.S. Lyon"
-    tva: "", // ex. "FRxx853296499"
-    ape: "", // ex. "43.21A — Travaux d'installation électrique"
-    creationDate: "",
-    // Assurance décennale (assureur + n° + couverture géo) — OBLIGATOIRE bâtiment.
-    decennale: "",
-    // RC Pro (assureur + zone).
-    rcPro: "",
-    // Médiateur de la consommation (nom + URL) — OBLIGATOIRE B2C.
+    raisonSociale: "AH ELEC RENOV",
+    // Capital (100 €) repris du brief initial — à vérifier sur le Kbis.
+    form: "SASU au capital de 100 €",
+    siren: "853 296 499",
+    siret: "853 296 499 00017",
+    rcs: "853 296 499 R.C.S. Lyon",
+    tva: "", // À COMPLÉTER (TVA intracom — calcul probable : FR48 853 296 499)
+    ape: "", // À COMPLÉTER (code APE/NAF)
+    creationDate: "", // À COMPLÉTER (date de création)
+    // Assurances : souscrites ; coordonnées/n° non affichés (figurent sur devis/factures).
+    decennale:
+      "Coordonnées de l'assureur et zone de couverture communiquées sur les devis et factures, conformément à l'article L.243-2 du Code des assurances.",
+    rcPro:
+      "Responsabilité civile professionnelle souscrite ; coordonnées de l'assureur communiquées sur demande.",
+    // Médiateur de la consommation (nom + URL) — OBLIGATOIRE B2C, encore manquant.
     mediator: { name: "", url: "" },
     // Hébergeur (Vercel par défaut).
     host: {

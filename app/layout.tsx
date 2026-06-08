@@ -28,11 +28,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ahelecrenov.fr";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${company.brandName} — Électricien & rénovation à Francheville`,
+    default: `${company.brandName} — Électricien & rénovation à Lyon`,
     template: `%s | ${company.brandName}`,
   },
   description:
-    "Électricien certifié & rénovation intérieure clé en main à Francheville et dans l'ouest lyonnais. Mise aux normes NF C 15-100, salle de bain, cuisine, plomberie. Devis gratuit.",
+    "Électricien certifié & rénovation intérieure clé en main à Lyon et dans l'ouest lyonnais. Mise aux normes NF C 15-100, salle de bain, cuisine, plomberie. Devis gratuit.",
   keywords: [
     "électricien Francheville",
     "rénovation intérieure Lyon ouest",

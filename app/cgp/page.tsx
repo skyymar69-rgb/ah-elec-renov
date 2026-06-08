@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LegalShell, Field } from "@/components/legal/LegalShell";
+import { LegalShell } from "@/components/legal/LegalShell";
 import { company } from "@/content/company";
 
 export const metadata: Metadata = {
@@ -100,8 +100,8 @@ export default function CGPPage() {
         </li>
         <li>
           <strong>Garantie décennale</strong> (10 ans) sur les ouvrages, au titre
-          de l'assurance souscrite :{" "}
-          <Field value={legal.decennale} hint="assureur + n° + couverture" />.
+          de l'assurance de responsabilité décennale souscrite par le
+          Prestataire. {legal.decennale}
         </li>
       </ul>
 
