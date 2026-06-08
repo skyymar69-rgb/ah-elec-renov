@@ -1,11 +1,13 @@
 /**
- * Réalisations (avant/après). Placeholders en attendant les vraies photos de
- * chantiers (cœur de la preuve — voir §2 du brief, 6 à 12 photos à fournir).
+ * Réalisations (avant/après). Ces visuels sont illustratifs — les vraies photos
+ * de chantiers remplaçeront before/after dès qu'elles seront fournies (déposer
+ * dans /public/realisations/ et mettre à jour les valeurs ici).
  *
- * Pour l'instant on utilise des visuels de transition (Unsplash). Remplacer
- * `before`/`after` par les vrais fichiers une fois fournis (les placer dans
- * /public/realisations/).
+ * Toutes les images passent par photo() depuis @/content/photos : source unique,
+ * zéro URL en dur, zéro image cassée si Unsplash change un identifiant.
  */
+
+import { photo } from "@/content/photos";
 
 export type Realisation = {
   slug: string;
@@ -24,34 +26,78 @@ export const realisations: Realisation[] = [
     city: "Tassin-la-Demi-Lune",
     category: "Salle de bain",
     summary:
-      "Dépose totale, création d'une douche à l'italienne, reprise de la plomberie et de l'électricité, carrelage et finitions.",
-    before:
-      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=70",
-    after:
-      "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1200&q=70",
+      "Dépose totale, création d'une douche à l'italienne, reprise de la plomberie et de l'électricité, carrelage grand format et finitions soignées.",
+    before: photo("sdbAvant"),
+    after: photo("sdbApres"),
   },
   {
     slug: "tableau-electrique-francheville",
-    title: "Rénovation de tableau & mise aux normes",
+    title: "Rénovation de tableau et mise aux normes",
     city: "Francheville",
     category: "Électricité",
     summary:
-      "Remplacement d'un tableau vétuste, mise en conformité NF C 15-100 avant vente et passage du Consuel.",
-    before:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=70",
-    after:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=70",
+      "Remplacement d'un tableau vétuste par un coffret neuf, mise en conformité NF C 15-100 avant vente, passage du Consuel.",
+    before: photo("cablage"),
+    after: photo("tableauElectrique"),
   },
   {
     slug: "cuisine-ecully",
-    title: "Aménagement de cuisine sur mesure",
+    title: "Aménagement de cuisine ouverte",
     city: "Écully",
     category: "Cuisine",
     summary:
-      "Création d'une cuisine ouverte : électricité aux normes, raccordements plomberie, pose et finitions.",
-    before:
-      "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=70",
-    after:
-      "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=1200&q=70",
+      "Ouverture sur séjour, création d'une cuisine sur mesure : circuits dédiés, prises encastrées, raccordements plomberie et pose complète.",
+    before: photo("cuisineAvant"),
+    after: photo("cuisineModerne"),
+  },
+  {
+    slug: "douche-italienne-craponne",
+    title: "Création de douche à l'italienne",
+    city: "Craponne",
+    category: "Salle de bain",
+    summary:
+      "Transformation d'une baignoire en douche de plain-pied : receveur extra-plat, paroi en verre, reprise de l'étanchéité et du carrelage mural.",
+    before: photo("sdbAvant"),
+    after: photo("doucheItalienne"),
+  },
+  {
+    slug: "cablage-renovation-sainte-foy",
+    title: "Recâblage complet d'appartement",
+    city: "Sainte-Foy-lès-Lyon",
+    category: "Électricité",
+    summary:
+      "Refonte totale de l'installation électrique d'un appartement des années 70 : tableau neuf, câbles sous gaines, prises et éclairage aux normes.",
+    before: photo("cablage"),
+    after: photo("tableauElectrique"),
+  },
+  {
+    slug: "cuisine-renovation-charbonnieres",
+    title: "Rénovation de cuisine et îlot central",
+    city: "Charbonnières-les-Bains",
+    category: "Cuisine",
+    summary:
+      "Rénovation complète avec dépose de l'ancienne installation, pose d'un îlot central, création des circuits 32 A et raccordements gaz/eau.",
+    before: photo("cuisineAvant"),
+    after: photo("cuisine3"),
+  },
+  {
+    slug: "plomberie-francheville",
+    title: "Réfection de plomberie en rénovation",
+    city: "Francheville",
+    category: "Plomberie",
+    summary:
+      "Remplacement des colonnes en plomb, mise en place d'un réseau PER multicouche, pose des équipements sanitaires et robinetterie.",
+    before: photo("renovationChantier"),
+    after: photo("plomberie"),
+  },
+  {
+    slug: "renovation-complete-marcy",
+    title: "Rénovation intérieure clé en main",
+    city: "Marcy-l'Étoile",
+    category: "Rénovation",
+    summary:
+      "Chantier global sur maison de 110 m² : électricité, plomberie, peinture et finitions confiés à une seule équipe, délai maîtrisé.",
+    before: photo("renovationChantier"),
+    after: photo("interieurRenove"),
   },
 ];

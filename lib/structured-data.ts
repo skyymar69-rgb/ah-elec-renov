@@ -51,3 +51,60 @@ export function localBusinessJsonLd() {
 
   return data;
 }
+
+/** JSON-LD `Service` pour une page service. */
+export function serviceJsonLd(opts: {
+  name: string;
+  description: string;
+  slug: string;
+  serviceType?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: opts.name,
+    serviceType: opts.serviceType ?? opts.name,
+    description: opts.description,
+    url: `${siteUrl}/services/${opts.slug}`,
+    provider: { "@id": `${siteUrl}/#business` },
+    areaServed: [
+      "Lyon",
+      "Francheville",
+      "Tassin-la-Demi-Lune",
+      "Écully",
+      "Sainte-Foy-lès-Lyon",
+      "Craponne",
+    ],
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: `${siteUrl}/devis`,
+    },
+  };
+}
+
+/** JSON-LD `FAQPage` à partir d'une liste de Q/R. */
+export function faqJsonLd(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  };
+}
+
+/** JSON-LD `BreadcrumbList`. items = [{name, path}], path relatif ("/services"). */
+export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: `${siteUrl}${it.path}`,
+    })),
+  };
+}

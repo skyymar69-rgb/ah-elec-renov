@@ -33,3 +33,5 @@ next-env.d.ts
 # local tooling / design references (non versionnés)
 .claude/
 .stitch-design/
+
+.vercel
