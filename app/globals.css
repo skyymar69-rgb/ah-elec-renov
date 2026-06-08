@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   AH ELEC RENOV — Design system « Artisan Core » (Stitch)
+   Identité : anthracite (technique) + cuivre (chaleur/matière).
+   High-contrast & refined. Pas de dégradé bleu générique.
+------------------------------------------------------------------ */
+
+@theme {
+  /* --- Couleurs de marque --- */
+  --color-ink: #101317; /* near-black : footer, étapes, hero */
+  --color-anthracite: #1a1d23; /* surfaces sombres : cards, CTA, réassurance */
+  --color-anthracite-700: #23272f;
+  --color-anthracite-500: #30343d;
+
+  --color-copper: #c9772f; /* accent / action (référence brief) */
+  --color-copper-600: #b3661f;
+  --color-copper-500: #c06a22;
+  --color-copper-400: #d98f4f;
+  --color-copper-300: #e6ab78; /* texte cuivre sur fond sombre */
+
+  --color-cream: #f7f5f1; /* fond clair */
+  --color-cream-200: #efece5;
+  --color-cream-300: #e6e3db;
+  --color-white-pure: #ffffff;
+
+  --color-muted: #6b7280; /* texte secondaire */
+  --color-line: #d8d5cd; /* filets / bordures claires */
+  --color-electric: #2bd4d9; /* accent technique — filets fins only */
+
+  /* --- Typographies (variables injectées par next/font) --- */
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /* --- Rayons (Stitch : large, approachable) --- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  /* --- Ombres : tonal layering + soft ambient --- */
+  --shadow-soft: 0 10px 30px rgba(26, 29, 37, 0.05);
+  --shadow-lift: 0 18px 45px rgba(26, 29, 37, 0.13);
+  --shadow-band: 0 24px 50px -12px rgba(16, 19, 23, 0.35);
+}
+
+:root {
+  --background: var(--color-cream);
+  --foreground: var(--color-anthracite);
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-copper);
+  color: var(--color-cream);
+}
+
+/* Titres en display, bien serrés */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance; /* évite les mots orphelins dans les titres */
+}
+
+/* Paragraphes : meilleure césure / pas d'orphelins */
+p {
+  text-wrap: pretty;
+}
+
+/* Ancres : décalage sous le header collant */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Chiffres alignés (étapes, données) */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Grain fin : casse la platitude des aplats sombres (overlay non interactif) */
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Focus visible accessible (RGAA / WCAG — navigation clavier) */
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Filet électrique fin — accent réservé aux détails */
+.accent-line {
+  height: 2px;
+  width: 3rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-copper),
+    var(--color-electric)
+  );
+  border-radius: 999px;
+}
+
+/* Halo cuivre au survol (CTA) */
+.copper-glow {
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.copper-glow:hover {
+  box-shadow: 0 0 24px rgba(201, 119, 47, 0.45);
+}
+
+/* Effet « blur-up » des images (Photoshop-like) : net une fois chargé */
+.img-blurup {
+  filter: blur(12px);
+  transform: scale(1.04);
+  transition:
+    filter 0.7s ease,
+    transform 0.7s ease;
+}
+.img-blurup[data-loaded="true"] {
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Traitement bitmap subtil sur les visuels de chantier */
+.img-craft {
+  filter: saturate(1.05) contrast(1.04);
+}
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .img-blurup {
+    filter: none;
+    transform: none;
+  }
+}
