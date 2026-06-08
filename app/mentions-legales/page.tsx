@@ -6,8 +6,7 @@ import { company, agency } from "@/content/company";
 export const metadata: Metadata = {
   title: "Mentions légales",
   description: "Mentions légales du site AH ELEC RENOV.",
-  // noindex tant que les identifiants légaux ne sont pas confirmés.
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export default function MentionsLegalesPage() {
@@ -58,10 +57,12 @@ export default function MentionsLegalesPage() {
         <dd>
           <Field value={legal.tva} hint="n° TVA" />
         </dd>
-        <dt>Code APE / NAF</dt>
-        <dd>
-          <Field value={legal.ape} hint="code APE" />
-        </dd>
+        {legal.ape ? (
+          <>
+            <dt>Code APE / NAF</dt>
+            <dd>{legal.ape}</dd>
+          </>
+        ) : null}
         <dt>Téléphone</dt>
         <dd>
           <a href={contact.phoneHref}>{contact.phone}</a>

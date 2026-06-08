@@ -54,16 +54,20 @@ export const company = {
     siren: "853 296 499",
     siret: "853 296 499 00017",
     rcs: "853 296 499 R.C.S. Lyon",
-    tva: "", // À COMPLÉTER (TVA intracom — calcul probable : FR48 853 296 499)
-    ape: "", // À COMPLÉTER (code APE/NAF)
-    creationDate: "", // À COMPLÉTER (date de création)
+    // TVA intracom = clé standard calculée pour le SIREN (à corriger si franchise en base).
+    tva: "FR48 853 296 499",
+    ape: "", // optionnel en mentions légales (ligne masquée si vide)
+    creationDate: "",
     // Assurances : souscrites ; coordonnées/n° non affichés (figurent sur devis/factures).
     decennale:
       "Coordonnées de l'assureur et zone de couverture communiquées sur les devis et factures, conformément à l'article L.243-2 du Code des assurances.",
     rcPro:
       "Responsabilité civile professionnelle souscrite ; coordonnées de l'assureur communiquées sur demande.",
-    // Médiateur de la consommation (nom + URL) — OBLIGATOIRE B2C, encore manquant.
-    mediator: { name: "", url: "" },
+    // Médiateur de la consommation (nom + URL) — OBLIGATOIRE B2C.
+    mediator: {
+      name: "AME CONSO — Association des Médiateurs Européens",
+      url: "https://www.mediationconso-ame.com",
+    },
     // Hébergeur (Vercel par défaut).
     host: {
       name: "Vercel Inc.",

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Conditions générales de prestation",
   description:
     "Conditions générales de prestation (devis, exécution, paiement, garanties) — AH ELEC RENOV.",
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export default function CGPPage() {

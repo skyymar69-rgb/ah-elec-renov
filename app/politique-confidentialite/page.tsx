@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LegalShell, Field } from "@/components/legal/LegalShell";
+import { LegalShell } from "@/components/legal/LegalShell";
 import { company } from "@/content/company";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
   description:
     "Politique de confidentialité et traitement des données personnelles — AH ELEC RENOV (RGPD).",
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export default function PolitiqueConfidentialitePage() {
@@ -134,15 +134,12 @@ export default function PolitiqueConfidentialitePage() {
         consentement préalable. Vous pouvez à tout moment retirer votre
         consentement ou paramétrer votre navigateur pour bloquer les cookies.
       </p>
-      <dl>
-        <dt>Mesure d'audience (le cas échéant)</dt>
-        <dd>
-          <Field
-            value=""
-            hint="préciser l'outil utilisé (ex. Vercel Analytics / Plausible) une fois activé"
-          />
-        </dd>
-      </dl>
+      <p>
+        À ce jour, aucun outil de mesure d'audience ni cookie de suivi tiers
+        n'est actif sur le site. Si une mesure d'audience anonyme est mise en
+        place ultérieurement, elle ne sera déclenchée qu'après votre
+        consentement et cette politique sera mise à jour en conséquence.
+      </p>
 
       <h2>8. Sécurité</h2>
       <p>

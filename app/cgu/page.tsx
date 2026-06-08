@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Conditions générales d'utilisation",
   description:
     "Conditions générales d'utilisation du site AH ELEC RENOV.",
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
 export default function CGUPage() {
